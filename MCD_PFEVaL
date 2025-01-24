@@ -1,0 +1,24 @@
+digraph MCD_PFEVaL {
+	rankdir=LR size="8,5"
+	Etudiant [label="Étudiant
+(ID_Étudiant, Nom, Prénom, Email, Promotion)" shape=box]
+	EncadrantInt [label="Encadrant Interne
+(ID_EncadrantInt, Nom, Prénom, Email, Département)" shape=box]
+	EncadrantExt [label="Encadrant Externe
+(ID_EncadrantExt, Nom, Prénom, Email, Organisation)" shape=box]
+	Livrable [label="Livrable
+(ID_Livrable, Titre, Description, Date_Dépôt, Type)" shape=box]
+	Soutenance [label="Soutenance
+(ID_Soutenance, Date, Heure, Lieu)" shape=box]
+	Jury [label="Jury
+(ID_Jury, Rôle)" shape=box]
+	Evaluation [label="Évaluation
+(ID_Évaluation, Note, Commentaire)" shape=box]
+	Etudiant -> Livrable [label="dépose" arrowhead=normal]
+	Etudiant -> EncadrantInt [label="est encadré par" arrowhead=normal]
+	Etudiant -> EncadrantExt [label="peut être encadré par" arrowhead=normal]
+	Etudiant -> Soutenance [label=a arrowhead=normal]
+	Soutenance -> Jury [label="composé de" arrowhead=normal]
+	Soutenance -> Evaluation [label="évalué par" arrowhead=normal]
+	Evaluation -> Jury [label="réalisé par" arrowhead=normal]
+}
